@@ -25,10 +25,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="archetype-resources" />
         <module name="maven-archetype-kylin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="archetype-resources" target="1.5" />
       <module name="maven-archetype-kylin" target="1.5" />
     </bytecodeTargetLevel>
   </component>
