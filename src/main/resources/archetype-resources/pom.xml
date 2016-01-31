@@ -1,5 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.wengyingjian.kylin</groupId>
+        <artifactId>kylin-parent-springboot</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>${groupId}</groupId>
@@ -8,14 +14,77 @@
     <packaging>jar</packaging>
 
     <name>${artifactId}</name>
+    <properties>
+        <autoconfig.file>antx.properties</autoconfig.file>
+        <autoconfig.path>${user.home}/antx-config/${groupName}/${projectName}</autoconfig.path>
+        <groupName>example</groupName>
+        <projectName>${project.artifactId}</projectName>
+        <project.version>1.0-SNAPSHOT</project.version>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>com.wengyingjian.kylin</groupId>
+            <artifactId>kylin-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wengyingjian.demo</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wengyingjian.kylin</groupId>
+            <artifactId>kylin-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wengyingjian.redis</groupId>
+            <artifactId>kylin-redis</artifactId>
+            <version>.</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.alibaba.citrus.tool</groupId>
+                <artifactId>autoconfig-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <userProperties>${autoconfig.path}/${autoconfig.file}</userProperties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>autoconfig</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
