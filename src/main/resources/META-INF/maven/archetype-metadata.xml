@@ -1,64 +1,102 @@
-<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
-                      http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-                      name="maven-archetype-kylin" partial="false">
-    <!--name string 选择atchetype时的显示名 -->
-    <!--partial boolean 该项目是否为完整的maven项目,还是只是一部分,默认为false-->
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        name="maven-archetype-kylin">
 
-    <!--利用此archetype生成项目必须的属性-->
-    <requiredProperties>
-        <!--由于是由Velocity引擎生成的,所以key不能带有"."-->
-        <requiredProperty key="groupId">
-            <defaultValue>com.wengyingjian</defaultValue>
-        </requiredProperty>
-    </requiredProperties>
-
-    <!--文件集定义-->
     <fileSets>
-        <!--以"__property__"模式定义的变量会被对于的property值所替换-->
-        <!--filtered boolean  默认false,表示保持文件原样不被替换-->
-        <fileSet filtered="true" packaged="false" encoding="UTF-8">
-            <!--文件所在(archetype-resources目录下)同时也是生成路径-->
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/java</directory>
             <includes>
-                <include>**/*.**</include>
+                <include>**/*.java</include>
             </includes>
         </fileSet>
-        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+        <fileSet filtered="true" encoding="UTF-8">
             <directory>src/main/resources</directory>
             <includes>
-                <include>**/*.**</include>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
             </includes>
         </fileSet>
-        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/test/java</directory>
             <includes>
-                <include>**/*.**</include>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
             </includes>
         </fileSet>
     </fileSets>
-
-    <!--模块定义-->
-    <!--<modules>-->
-        <!--&lt;!&ndash;id 模块的artifactId&ndash;&gt;-->
-        <!--&lt;!&ndash;dir模块所在路径&ndash;&gt;-->
-        <!--<module id="" dir="" name="">-->
-
-            <!--<fileSets>-->
-                <!--<fileSet filtered="" packaged="" encoding="">-->
-                    <!--<directory/>-->
-                    <!--<includes/>-->
-                    <!--<excludes/>-->
-                <!--</fileSet>-->
-            <!--</fileSets>-->
-
-            <!--<modules>-->
-                <!--<module>-->
-                <!--</module>-->
-            <!--</modules>-->
-        <!--</module>-->
-    <!--</modules>-->
-
-
 </archetype-descriptor>
+
+
+        <!--<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"-->
+        <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0-->
+        <!--http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"-->
+        <!--name="maven-archetype-kylin" partial="false">-->
+        <!--&lt;!&ndash;name string 选择atchetype时的显示名 &ndash;&gt;-->
+        <!--&lt;!&ndash;partial boolean 该项目是否为完整的maven项目,还是只是一部分,默认为false&ndash;&gt;-->
+
+        <!--&lt;!&ndash;利用此archetype生成项目必须的属性&ndash;&gt;-->
+        <!--<requiredProperties>-->
+        <!--&lt;!&ndash;由于是由Velocity引擎生成的,所以key不能带有"."&ndash;&gt;-->
+        <!--<requiredProperty key="groupId">-->
+        <!--<defaultValue>com.wengyingjian</defaultValue>-->
+        <!--</requiredProperty>-->
+        <!--</requiredProperties>-->
+
+        <!--&lt;!&ndash;文件集定义&ndash;&gt;-->
+        <!--<fileSets>-->
+        <!--&lt;!&ndash;以"__property__"模式定义的变量会被对于的property值所替换&ndash;&gt;-->
+        <!--&lt;!&ndash;filtered boolean  默认false,表示保持文件原样不被替换&ndash;&gt;-->
+        <!--<fileSet filtered="true" packaged="false" encoding="UTF-8">-->
+        <!--&lt;!&ndash;文件所在(archetype-resources目录下)同时也是生成路径&ndash;&gt;-->
+        <!--<directory>src/main/java</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.**</include>-->
+        <!--</includes>-->
+        <!--</fileSet>-->
+        <!--<fileSet filtered="true" packaged="false" encoding="UTF-8">-->
+        <!--<directory>src/main/resources</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.**</include>-->
+        <!--</includes>-->
+        <!--</fileSet>-->
+        <!--<fileSet filtered="true" packaged="false" encoding="UTF-8">-->
+        <!--<directory>src/test/java</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.**</include>-->
+        <!--</includes>-->
+        <!--</fileSet>-->
+        <!--</fileSets>-->
+
+        <!--&lt;!&ndash;模块定义&ndash;&gt;-->
+        <!--&lt;!&ndash;<modules>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;id 模块的artifactId&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;dir模块所在路径&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<module id="" dir="" name="">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<fileSets>&ndash;&gt;-->
+        <!--&lt;!&ndash;<fileSet filtered="" packaged="" encoding="">&ndash;&gt;-->
+        <!--&lt;!&ndash;<directory/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<includes/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<excludes/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</fileSet>&ndash;&gt;-->
+        <!--&lt;!&ndash;</fileSets>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<modules>&ndash;&gt;-->
+        <!--&lt;!&ndash;<module>&ndash;&gt;-->
+        <!--&lt;!&ndash;</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;</modules>&ndash;&gt;-->
+        <!--&lt;!&ndash;</module>&ndash;&gt;-->
+        <!--&lt;!&ndash;</modules>&ndash;&gt;-->
+
+
+        <!--</archetype-descriptor>-->

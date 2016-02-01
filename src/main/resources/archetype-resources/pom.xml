@@ -28,18 +28,16 @@
             <artifactId>kylin-log4j2</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.wengyingjian.demo</groupId>
-            <artifactId>demo-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.wengyingjian.kylin</groupId>
             <artifactId>kylin-util</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.wengyingjian.redis</groupId>
+            <groupId>com.wengyingjian.kylin</groupId>
+            <artifactId>kylin-rpc-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wengyingjian.kylin</groupId>
             <artifactId>kylin-redis</artifactId>
-            <version>.</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
